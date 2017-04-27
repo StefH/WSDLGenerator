@@ -1,0 +1,2 @@
+--input "../../../Test/MyWebServices.dll" --outputfolder "../../../Out" --wsdl --spwsdl --spdisco -n WebApplication_ASMXTest.MyWebService -v
+--input "../../../Test/WCFService.dll" --outputfolder "../../../Out" --wsdl -v

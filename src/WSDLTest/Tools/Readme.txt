@@ -1,0 +1,1 @@
+﻿wsdl.exe is used to test the generated wsdl.

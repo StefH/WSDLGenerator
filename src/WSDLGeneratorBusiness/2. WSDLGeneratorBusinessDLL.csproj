@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4209BBA7-6F53-4FF6-91C2-940DCAE1BBFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WSDLGeneratorBusiness</RootNamespace>
+    <AssemblyName>WSDLGeneratorBusiness</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeExtensions.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="WebServiceType.cs" />
+    <Compile Include="WSDLGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\BoolArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\Char.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\CharArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\Header.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\IntArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\LongArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\Messages.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\PortOperation.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\SPServices.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\ShortArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\Soap12Binding.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\SoapBinding.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\StringArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\SP2007Header.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\Services.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WSDLVersionInfo\1. WSDLVersionInfo.csproj">
+      <Project>{022117AF-9D0F-4A35-9A53-0B935D261D57}</Project>
+      <Name>1. WSDLVersionInfo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\GenericArray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\SP2007Disco.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

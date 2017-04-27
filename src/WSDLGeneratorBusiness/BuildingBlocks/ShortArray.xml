@@ -1,0 +1,5 @@
+﻿      <s:complexType name="ArrayOfShort">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:short" />
+        </s:sequence>
+      </s:complexType>

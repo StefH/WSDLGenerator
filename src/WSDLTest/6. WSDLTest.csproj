@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{733C7813-DE30-4D1A-94C5-C9A9D4DCDF6C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WSDLTest</RootNamespace>
+    <AssemblyName>WSDLTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyWebService2CodeFile_4.6.cs" />
+    <Compile Include="MyWebServiceCodeFile_2.0.cs" />
+    <Compile Include="MyWebServiceCodeFile_4.0.cs" />
+    <Compile Include="MyWebService2CodeFile_2.0.cs" />
+    <Compile Include="MyWebService2CodeFile_4.0.cs" />
+    <Compile Include="MyWebServiceCodeFile_4.6.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\wsdl 4.0\wsdl.exe.config" />
+    <None Include="Tools\wsdl 2.0\wsdl.exe.config" />
+    <None Include="Tools\wsdl 4.6.1055.0\wsdl.exe.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tools\Readme.txt" />
+    <Content Include="Tools\wsdl 4.0\wsdl.exe" />
+    <Content Include="Tools\wsdl 2.0\wsdl.exe" />
+    <Content Include="Tools\wsdl 4.6.1055.0\wsdl.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temp\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>del /Q "$(ProjectDir)Temp\*.*"
+copy "$(SolutionDir)src\WebApplication_ASMXTest\$(OutDir)MyWebServices.dll" "$(ProjectDir)Temp"
+copy "$(SolutionDir)src\WebApplication_ASMXTest2\$(OutDir)MyWebServices2.dll" "$(ProjectDir)Temp"
+copy "$(SolutionDir)src\WCFService\$(OutDir)\WCFService.dll" "$(ProjectDir)Temp"
+copy "$(SolutionDir)src\WCFService2\$(OutDir)\WCFService2.dll" "$(ProjectDir)Temp"
+
+
+"$(SolutionDir)src\WSDLGeneratorDeploy\Deploy\$(ConfigurationName)\WSDLGenerator.exe" --input "$(ProjectDir)Temp\MyWebServices.dll" --outputfolder "$(ProjectDir)Temp" --spwsdl --wsdl --spdisco -n WebApplication_ASMXTest.MyWebService -v
+"$(SolutionDir)src\WSDLGeneratorDeploy\Deploy\$(ConfigurationName)\WSDLGenerator.exe" --input "$(ProjectDir)Temp\MyWebServices2.dll" --outputfolder "$(ProjectDir)Temp" --spwsdl --wsdl --spdisco -n WebApplication_ASMXTest2.MyWebService2 -v
+"$(SolutionDir)src\WSDLGeneratorDeploy\Deploy\$(ConfigurationName)\WSDLGenerator.exe" --input "$(ProjectDir)Temp\WCFService.dll" --outputfolder "$(ProjectDir)Temp" --wsdl -v
+"$(SolutionDir)src\WSDLGeneratorDeploy\Deploy\$(ConfigurationName)\WSDLGenerator.exe" --input "$(ProjectDir)Temp\WCFService2.dll" --outputfolder "$(ProjectDir)Temp" --wsdl -v
+
+attrib -r "$(ProjectDir)MyWebServiceCodeFile*.cs"
+"$(ProjectDir)Tools\wsdl 2.0\wsdl.exe" /n:MyNamespaceForMyWebService_DotNet20 /o:"$(ProjectDir)MyWebServiceCodeFile_2.0.cs" "$(ProjectDir)Temp\MyWebService.wsdl"
+"$(ProjectDir)Tools\wsdl 4.0\wsdl.exe" /n:MyNamespaceForMyWebService_DotNet40 /o:"$(ProjectDir)MyWebServiceCodeFile_4.0.cs" "$(ProjectDir)Temp\MyWebService.wsdl"
+"$(ProjectDir)Tools\wsdl 4.6.1055.0\wsdl.exe" /n:MyNamespaceForMyWebService_DotNet46 /o:"$(ProjectDir)MyWebServiceCodeFile_4.6.cs" "$(ProjectDir)Temp\MyWebService.wsdl"
+
+attrib -r "$(ProjectDir)MyWebService2CodeFile*.cs"
+"$(ProjectDir)Tools\wsdl 2.0\wsdl.exe" /n:MyNamespaceForMyWebService2_DotNet20 /o:"$(ProjectDir)MyWebService2CodeFile_2.0.cs" "$(ProjectDir)Temp\MyWebService2.wsdl"
+"$(ProjectDir)Tools\wsdl 4.0\wsdl.exe" /n:MyNamespaceForMyWebService2_DotNet40 /o:"$(ProjectDir)MyWebService2CodeFile_4.0.cs" "$(ProjectDir)Temp\MyWebService2.wsdl"
+"$(ProjectDir)Tools\wsdl 4.6.1055.0\wsdl.exe" /n:MyNamespaceForMyWebService2_DotNet46 /o:"$(ProjectDir)MyWebService2CodeFile_4.6.cs" "$(ProjectDir)Temp\MyWebService2.wsdl"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

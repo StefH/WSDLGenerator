@@ -1,0 +1,5 @@
+﻿      <s:complexType name="ArrayOf{0}">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="{0}" nillable="true" type="tns:{0}" />
+        </s:sequence>
+      </s:complexType>
