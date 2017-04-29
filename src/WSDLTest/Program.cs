@@ -21,7 +21,11 @@ namespace WSDLTest
 			// .NET 4.0
 			var service40 = new MyNamespaceForMyWebService_DotNet40.MyWebService { Url = url };
 			Console.WriteLine(".NET 4.0 = " + service40.GetLong());
-		}
+
+		    // .NET 4.6
+		    var service46 = new MyNamespaceForMyWebService_DotNet46.MyWebService { Url = url };
+		    Console.WriteLine(".NET 4.6 = " + service46.GetLong());
+        }
 
 		private static void TestMyWebService2()
 		{
@@ -32,8 +36,12 @@ namespace WSDLTest
 			Console.WriteLine(".NET 2.0 = " + service20.GetLong());
 
 			// .NET 4.0
-			var service40 = new MyNamespaceForMyWebService2_DotNet20.MyWebService2 { Url = url };
+			var service40 = new MyNamespaceForMyWebService2_DotNet40.MyWebService2 { Url = url };
 			Console.WriteLine(".NET 4.0 = " + service40.GetLong());
-		}
+
+		    // .NET 4.6
+		    var service46 = new MyNamespaceForMyWebService2_DotNet46.MyWebService2 { Url = url };
+		    Console.WriteLine(".NET 4.0 = " + service46.GetLong());
+        }
 	}
 }
