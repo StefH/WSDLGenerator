@@ -7,24 +7,17 @@ using System.Text;
 using System.Web.Services;
 using System.Web.Services.Description;
 using System.Xml;
+using WSDLGenerator;
 
 namespace WSDLGeneratorBusiness
 {
-    public class WSDLGeneratorOptions
-    {
-        public DirectoryInfo OutputFolder { get; set; }
-        public bool GenerateWSDL { get; set; }
-        public bool GenerateSPWSDL { get; set; }
-        public bool GenerateSPDisco { get; set; }
-    }
-
-    public class WSDLGenerator
+    public class Generator
     {
         private readonly List<KeyValuePair<WebServiceType, Type>> serviceTypes = new List<KeyValuePair<WebServiceType, Type>>();
         private readonly bool verbose;
         private readonly string applicationPath;
 
-        public WSDLGenerator(string path, string servicename, bool verbose)
+        public Generator(string path, string servicename, bool verbose)
         {
             this.verbose = verbose;
 
@@ -109,7 +102,7 @@ namespace WSDLGeneratorBusiness
             return fileExists ? Assembly.LoadFrom(dllPath) : null;
         }
 
-        public void GenerateFiles(WSDLGeneratorOptions generatorOptions)
+        public void GenerateFiles(GeneratorOptions generatorOptions)
         {
             string outputFolder = generatorOptions.OutputFolder.FullName;
 

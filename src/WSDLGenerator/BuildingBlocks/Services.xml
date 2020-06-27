@@ -1,0 +1,8 @@
+﻿  <wsdl:service name="{0}">
+    <wsdl:port name="{0}Soap" binding="tns:{0}Soap">
+      <soap:address location="http://localhost/{0}.asmx" />
+    </wsdl:port>
+    <wsdl:port name="{0}Soap12" binding="tns:{0}Soap12">
+      <soap12:address location="http://localhost/{0}.asmx" />
+    </wsdl:port>
+  </wsdl:service>

@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Generate WSDL file(s) from a C# DLL which contains one more Microsoft WebServices.</Description>
+    <PackageTags>WSDL;WCF;generate;generator;file;asmx;sharepoint</PackageTags>
+    <Authors>Stef Heyenrath</Authors>
+    <TargetFrameworks>net40</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ProjectGuid>{11FDB1F8-7D42-4758-9581-BD6F4DE54C51}</ProjectGuid>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <PackageReleaseNotes>See CHANGELOG.md</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/StefH/WSDLGenerator</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/StefH/WSDLGenerator</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="BuildingBlocks\BoolArray.xml" />
+    <EmbeddedResource Include="BuildingBlocks\Char.xml" />
+    <EmbeddedResource Include="BuildingBlocks\CharArray.xml" />
+    <EmbeddedResource Include="BuildingBlocks\GenericArray.xml" />
+    <EmbeddedResource Include="BuildingBlocks\Header.xml" />
+    <EmbeddedResource Include="BuildingBlocks\IntArray.xml" />
+    <EmbeddedResource Include="BuildingBlocks\LongArray.xml" />
+    <EmbeddedResource Include="BuildingBlocks\Messages.xml" />
+    <EmbeddedResource Include="BuildingBlocks\PortOperation.xml" />
+    <EmbeddedResource Include="BuildingBlocks\Services.xml" />
+    <EmbeddedResource Include="BuildingBlocks\ShortArray.xml" />
+    <EmbeddedResource Include="BuildingBlocks\Soap12Binding.xml" />
+    <EmbeddedResource Include="BuildingBlocks\SoapBinding.xml" />
+    <EmbeddedResource Include="BuildingBlocks\SP2007Disco.xml" />
+    <EmbeddedResource Include="BuildingBlocks\SP2007Header.xml" />
+    <EmbeddedResource Include="BuildingBlocks\SPServices.xml" />
+    <EmbeddedResource Include="BuildingBlocks\StringArray.xml" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <PackageReference Include="System.ServiceModel.Http">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Primitives">
+      <Version>4.7.0</Version>
+    </PackageReference>
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+﻿    <wsdl:operation name="{0}">
+      <soap12:operation soapAction="{1}{0}" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>

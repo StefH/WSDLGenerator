@@ -1,0 +1,4 @@
+﻿    <wsdl:operation name="{0}">
+      <wsdl:input message="tns:{0}SoapIn" />
+      <wsdl:output message="tns:{0}SoapOut" />
+    </wsdl:operation>

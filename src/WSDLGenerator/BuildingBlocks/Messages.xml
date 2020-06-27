@@ -1,0 +1,6 @@
+﻿  <wsdl:message name="{0}SoapIn">
+    <wsdl:part name="parameters" element="tns:{0}" />
+  </wsdl:message>
+  <wsdl:message name="{0}SoapOut">
+    <wsdl:part name="parameters" element="tns:{0}Response" />
+  </wsdl:message>

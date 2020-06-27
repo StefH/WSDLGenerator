@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WSDLGeneratorBusiness\2. WSDLGeneratorBusinessDLL.csproj">
-      <Project>{4209BBA7-6F53-4FF6-91C2-940DCAE1BBFD}</Project>
+      <Project>{4209bba7-6f53-4ff6-91c2-940dcae1bbfd}</Project>
       <Name>2. WSDLGeneratorBusinessDLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\WSDLVersionInfo\1. WSDLVersionInfo.csproj">

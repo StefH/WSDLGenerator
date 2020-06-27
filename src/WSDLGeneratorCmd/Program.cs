@@ -61,7 +61,7 @@ namespace WSDLGeneratorCmd
             {
                 parser.ParseCommandLine(commandArgs);
 
-                var options = new WSDLGeneratorOptions
+                var options = new GeneratorOptions
                 {
                     OutputFolder = args.OutputFolder,
                     GenerateWSDL = args.GenerateWSDL,
@@ -74,7 +74,7 @@ namespace WSDLGeneratorCmd
                     parser.ShowParsedArguments();
                 }
 
-                new WSDLGenerator(args.InputFile.FullName, args.ServiceName, args.Verbose).GenerateFiles(options);
+                new Generator(args.InputFile.FullName, args.ServiceName, args.Verbose).GenerateFiles(options);
             }
             catch (CommandLineException e)
             {
