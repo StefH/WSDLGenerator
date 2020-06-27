@@ -23,10 +23,9 @@ namespace WSDLGeneratorBusiness
 			}
 			catch (Exception ex)
 			{
-				if (ex is ReflectionTypeLoadException)
+				if (ex is ReflectionTypeLoadException reflectionTypeLoadException)
 				{
-					var reflectionEx = ex as ReflectionTypeLoadException;
-					foreach (var loaderEx in reflectionEx.LoaderExceptions)
+                    foreach (var loaderEx in reflectionTypeLoadException.LoaderExceptions)
 					{
 						Console.WriteLine(loaderEx.ToString());
 					}

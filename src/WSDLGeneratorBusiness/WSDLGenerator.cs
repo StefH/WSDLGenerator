@@ -10,12 +10,12 @@ using System.Xml;
 
 namespace WSDLGeneratorBusiness
 {
-    public class WSDLOptions
+    public class WSDLGeneratorOptions
     {
-        public DirectoryInfo OutputFolder;
-        public bool GenerateWSDL;
-        public bool GenerateSPWSDL;
-        public bool GenerateSPDisco;
+        public DirectoryInfo OutputFolder { get; set; }
+        public bool GenerateWSDL { get; set; }
+        public bool GenerateSPWSDL { get; set; }
+        public bool GenerateSPDisco { get; set; }
     }
 
     public class WSDLGenerator
@@ -102,34 +102,34 @@ namespace WSDLGeneratorBusiness
         {
             var assemblyName = new AssemblyName(args.Name);
 
-            string dllPath = Path.Combine(applicationPath, string.Format("{0}.dll", assemblyName.Name));
+            string dllPath = Path.Combine(applicationPath, $"{assemblyName.Name}.dll");
 
             bool fileExists = File.Exists(dllPath);
 
             return fileExists ? Assembly.LoadFrom(dllPath) : null;
         }
 
-        public void GenerateFiles(WSDLOptions options)
+        public void GenerateFiles(WSDLGeneratorOptions generatorOptions)
         {
-            string outputFolder = options.OutputFolder.FullName;
+            string outputFolder = generatorOptions.OutputFolder.FullName;
 
             foreach (var kvType in serviceTypes)
             {
                 WebServiceType serviceType = kvType.Key;
                 Type type = kvType.Value;
-                if (options.GenerateWSDL)
+                if (generatorOptions.GenerateWSDL)
                 {
                     string wsdl = Path.Combine(outputFolder, type.Name + ".wsdl");
                     GenerateWSDL(serviceType, type, wsdl, false);
                 }
 
-                if (options.GenerateSPWSDL)
+                if (generatorOptions.GenerateSPWSDL)
                 {
                     string spwsdl = Path.Combine(outputFolder, type.Name + "wsdl.aspx");
                     GenerateWSDL(serviceType, type, spwsdl, true);
                 }
 
-                if (options.GenerateSPDisco)
+                if (generatorOptions.GenerateSPDisco)
                 {
                     string spdisco = Path.Combine(outputFolder, type.Name + "disco.aspx");
 
@@ -139,7 +139,9 @@ namespace WSDLGeneratorBusiness
                     string xml = string.Format(Utils.GetResource("SP2007Disco.xml"), ns, type.Name);
 
                     if (WriteFile(spdisco, xml))
+                    {
                         Console.WriteLine("Disco has been generated : '" + spdisco + "'");
+                    }
                 }
             }
         }

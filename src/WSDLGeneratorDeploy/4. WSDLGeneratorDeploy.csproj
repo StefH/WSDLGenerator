@@ -119,10 +119,10 @@
     <PostBuildEvent>rmdir /S /Q "$(ProjectDir)Deploy\$(ConfigurationName)"
 mkdir "$(ProjectDir)Deploy\$(ConfigurationName)"
 
-"$(ProjectDir)Tools\ilmerge.exe" /out:"$(ProjectDir)Deploy\$(ConfigurationName)\WSDLGenerator.exe" "$(SolutionDir)src\WSDLGenerator\$(OutDir)WSDLGeneratorCmd.exe" "$(SolutionDir)src\WSDLGenerator\$(OutDir)WSDLGeneratorBusiness.dll" "$(SolutionDir)src\WSDLGenerator\$(OutDir)CommandLineArgumentsParser.dll" /targetplatform:v4,c:\Windows\Microsoft.NET\Framework\v4.0.30319
+"$(ProjectDir)Tools\ilmerge.exe" /out:"$(ProjectDir)Deploy\$(ConfigurationName)\WSDLGenerator.exe" "$(SolutionDir)src\WSDLGeneratorCmd\$(OutDir)WSDLGeneratorCmd.exe" "$(SolutionDir)src\WSDLGeneratorCmd\$(OutDir)WSDLGeneratorBusiness.dll" "$(SolutionDir)src\WSDLGeneratorCmd\$(OutDir)CommandLineArgumentsParser.dll" /targetplatform:v4,c:\Windows\Microsoft.NET\Framework\v4.0.30319
 
 "$(ProjectDir)Tools\7za.exe" a "$(ProjectDir)Deploy\$(ConfigurationName)\WSDLGenerator_$(PlatformName).zip" "$(ProjectDir)Deploy\$(ConfigurationName)\WSDLGenerator.exe"  -tzip
-"$(ProjectDir)Tools\7za.exe" a "$(ProjectDir)Deploy\$(ConfigurationName)\WSDLGenerator_$(PlatformName)_DLL.zip" "$(SolutionDir)src\WSDLGenerator\$(OutDir)WSDLGeneratorBusiness.dll"  -tzip</PostBuildEvent>
+"$(ProjectDir)Tools\7za.exe" a "$(ProjectDir)Deploy\$(ConfigurationName)\WSDLGenerator_$(PlatformName)_DLL.zip" "$(SolutionDir)src\WSDLGeneratorCmd\$(OutDir)WSDLGeneratorBusiness.dll"  -tzip</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
