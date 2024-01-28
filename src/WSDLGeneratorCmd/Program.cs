@@ -37,6 +37,9 @@ namespace WSDLGeneratorCmd
 
             [SwitchArgument('v', "verbose", false, Description = "Verbose messages")]
             public bool Verbose;
+
+            [SwitchArgument('f', "autofixnamespace", true, Description = "In case the Namespace does not end with a '/', append it")]
+            public bool AutoFixNamespace;
         }
 
         private static void ShowUsage(CommandLineParser.CommandLineParser parser)

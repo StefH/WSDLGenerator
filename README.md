@@ -9,7 +9,7 @@ WSDLGenerator uses ServiceDescriptionReflector code to retrieve all information 
 ## Usage
 
 ```
-WSDLGenerator (0.0.0.13)
+WSDLGenerator (0.0.0.14)
 
 Usage:
         -i, --input... Input assembly or file which contains the WebServices

@@ -10,21 +10,13 @@ using System.Xml;
 
 namespace WSDLGeneratorBusiness
 {
-    public class WSDLGeneratorOptions
-    {
-        public DirectoryInfo OutputFolder { get; set; }
-        public bool GenerateWSDL { get; set; }
-        public bool GenerateSPWSDL { get; set; }
-        public bool GenerateSPDisco { get; set; }
-    }
-
     public class WSDLGenerator
     {
         private readonly List<KeyValuePair<WebServiceType, Type>> serviceTypes = new List<KeyValuePair<WebServiceType, Type>>();
         private readonly bool verbose;
         private readonly string applicationPath;
 
-        public WSDLGenerator(string path, string servicename, bool verbose)
+        public WSDLGenerator(string path, string serviceName, bool verbose)
         {
             this.verbose = verbose;
 
@@ -77,11 +69,11 @@ namespace WSDLGeneratorBusiness
                 return;
             }
 
-            if (!string.IsNullOrEmpty(servicename))
+            if (!string.IsNullOrEmpty(serviceName))
             {
                 foreach (var kvType in services)
                 {
-                    if (kvType.Value.FullName == servicename)
+                    if (kvType.Value.FullName == serviceName)
                     {
                         serviceTypes.Add(kvType);
                     }
@@ -89,24 +81,13 @@ namespace WSDLGeneratorBusiness
 
                 if (serviceTypes.Count == 0)
                 {
-                    Console.WriteLine("Service '" + servicename + "'not found in assembly '" + path + "'");
+                    Console.WriteLine("Service '" + serviceName + "'not found in assembly '" + path + "'");
                 }
             }
             else
             {
                 serviceTypes = services;
             }
-        }
-
-        Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
-        {
-            var assemblyName = new AssemblyName(args.Name);
-
-            string dllPath = Path.Combine(applicationPath, $"{assemblyName.Name}.dll");
-
-            bool fileExists = File.Exists(dllPath);
-
-            return fileExists ? Assembly.LoadFrom(dllPath) : null;
         }
 
         public void GenerateFiles(WSDLGeneratorOptions generatorOptions)
@@ -146,6 +127,17 @@ namespace WSDLGeneratorBusiness
             }
         }
 
+        private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var assemblyName = new AssemblyName(args.Name);
+
+            string dllPath = Path.Combine(applicationPath, $"{assemblyName.Name}.dll");
+
+            bool fileExists = File.Exists(dllPath);
+
+            return fileExists ? Assembly.LoadFrom(dllPath) : null;
+        }
+
         private void GenerateWSDL(WebServiceType serviceType, Type type, string filepath, bool generateSPFile)
         {
             if (serviceType == WebServiceType.ASMX)
@@ -153,13 +145,13 @@ namespace WSDLGeneratorBusiness
                 var wsAttr = type.GetCustomAttribute<WebServiceAttribute>();
 
                 string ns = wsAttr.Namespace;
-                string asmx = "http://localhost/" + type.Name + ".asmx";
-
-                if (!string.IsNullOrEmpty(ns) && ns[ns.Length - 1] != '/')
+                if (string.IsNullOrEmpty(ns))
                 {
-                    Console.WriteLine($"Invalid namespace, '{ns}' does not end with a /");
+                    Console.WriteLine("Namespace is null or empty.");
                     return;
                 }
+                
+                var asmx = "http://localhost/" + type.Name + ".asmx";
 
                 var reflector = new ServiceDescriptionReflector();
                 reflector.Reflect(type, asmx);
@@ -178,7 +170,7 @@ namespace WSDLGeneratorBusiness
                 stream.Seek(0, SeekOrigin.Begin);
                 string xml = textReader.ReadToEnd();
 
-                if (generateSPFile && serviceType == WebServiceType.ASMX)
+                if (generateSPFile)
                 {
                     // Replace header
                     xml = xml.Replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", Utils.GetResource("SP2007Header.xml"));

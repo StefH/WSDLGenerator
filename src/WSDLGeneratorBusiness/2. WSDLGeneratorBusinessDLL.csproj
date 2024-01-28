@@ -89,6 +89,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="WebServiceType.cs" />
     <Compile Include="WSDLGenerator.cs" />
+    <Compile Include="WSDLGeneratorOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BuildingBlocks\BoolArray.xml" />
