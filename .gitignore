@@ -250,3 +250,7 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/src/WSDLTest/Temp/*.wsdl
+/src/WSDLTest/Temp/*.aspx
+/src/WSDLTest/Temp/*.dll
+/src/WSDLGeneratorCmd/Test/*.dll

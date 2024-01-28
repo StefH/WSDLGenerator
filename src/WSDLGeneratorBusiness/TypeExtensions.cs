@@ -2,7 +2,7 @@
 
 namespace WSDLGeneratorBusiness
 {
-    public static class TypeExtensions
+    internal static class TypeExtensions
     {
         /// <summary>
         /// Get a GetCustomAttribute
@@ -13,7 +13,7 @@ namespace WSDLGeneratorBusiness
         {
             var attr = Attribute.GetCustomAttribute(type, typeof(T));
 
-            return attr is T ? (T)attr : null;
+            return (T)attr;
         }
     }
 }

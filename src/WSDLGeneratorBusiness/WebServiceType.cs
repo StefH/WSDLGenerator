@@ -1,6 +1,6 @@
 ﻿namespace WSDLGeneratorBusiness
 {
-    public enum WebServiceType
+    internal enum WebServiceType
     {
         ASMX,
         WCF

@@ -7,7 +7,7 @@ using System.Web.Services;
 
 namespace WSDLGeneratorBusiness
 {
-	public static class AssemblyExtensions
+    internal static class AssemblyExtensions
 	{
 		/// <summary>
 		/// Get all WebServices from an Assembly
@@ -18,7 +18,8 @@ namespace WSDLGeneratorBusiness
 		{
 			try
 			{
-				return assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(WebService)))
+				return assembly.GetTypes()
+                    .Where(t => t.IsSubclassOf(typeof(WebService)))
 					.Select(t => new KeyValuePair<WebServiceType, Type>(WebServiceType.ASMX, t));
 			}
 			catch (Exception ex)
@@ -42,13 +43,13 @@ namespace WSDLGeneratorBusiness
 		/// <returns>List</returns>
 		public static IEnumerable<KeyValuePair<WebServiceType, Type>> GetWCFServiceTypes(this Assembly assembly)
 		{
-			foreach (var t in assembly.GetTypes())
+			foreach (var type in assembly.GetTypes())
 			{
-				var attribute = t.GetCustomAttribute<ServiceContractAttribute>();
+				var attribute = type.GetCustomAttribute<ServiceContractAttribute>();
 
 				if (attribute != null)
 				{
-					yield return new KeyValuePair<WebServiceType, Type>(WebServiceType.WCF, t);
+					yield return new KeyValuePair<WebServiceType, Type>(WebServiceType.WCF, type);
 				}
 			}
 		}

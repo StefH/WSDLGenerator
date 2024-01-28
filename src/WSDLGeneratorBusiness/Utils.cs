@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace WSDLGeneratorBusiness
 {
-    public static class Utils
+    internal static class Utils
     {
         /// <summary>
         /// Get the string content from an embedded resource file.
